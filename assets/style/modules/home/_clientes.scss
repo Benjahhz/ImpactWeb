@@ -1,0 +1,27 @@
+.seccion-clientes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title{
+        font-size: 3.2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: rgb(182, 182, 182);
+    }
+
+
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        img{
+            width: 10rem;
+            margin: 2rem;
+        }
+    }
+}

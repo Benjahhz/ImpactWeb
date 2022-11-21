@@ -1,0 +1,247 @@
+.container-main {
+  background-color: $colorGrisLight;
+  border-radius: 2rem;
+  min-height: 200vh;
+}
+.seccion-nosotros {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+  gap: 2rem;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &__image {
+      object-fit: cover;
+      border-radius: 2rem;
+      width: 30rem;
+      align-self: center;
+    }
+    &__titleImage {
+      width: 50%;
+    }
+    &__title {
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      font-size: 7rem;
+      transform: rotate(90deg);
+      position: absolute;
+      top: 25%;
+      margin: 0;
+      min-width: 45rem;
+      right: -20rem;
+      color: white;
+      z-index: 99;
+    transition: all 0.3s ease;
+
+      
+    }
+    &__text {
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      font-size: clamp(1.6rem, 6vw, 2.6rem);
+      color: gray;
+      display: none;
+    }
+    .seccion-innovadores__item__title {
+      transform: rotate(-90deg);
+      left: -18rem;
+      right: initial;
+      text-align: end;
+    }
+    .seccion-innovadores__item__text {
+      text-align: end;
+    }
+    
+  }
+}
+
+.seccion-apasionados {
+  position: relative;
+  &__corazon {
+    position: absolute;
+    width: 180vw;
+    left: -120%;
+    bottom: 0;
+    filter: contrast(0.7);
+    object-fit: cover;
+    transition: all 0.3s ease;
+  }
+  &__personas {
+    object-fit: cover;
+    width: 120%;
+    height: 80vh;
+    left: -4rem;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.6s;
+    opacity: 0;
+    filter: contrast(0.7);
+    @include mobileXS{
+      height: 55rem;
+      left: -2rem;
+    }
+  }
+  &.--active {
+    .seccion-apasionados__corazon {
+      width: 100%;
+      min-width: 25rem;
+      left: -2rem;
+      bottom: 28%;
+    }
+    .seccion-apasionados__personas {
+      opacity: 1;
+    }
+  }
+}
+.seccion-impact {
+  &__image {
+    display: none;
+    object-fit: cover;
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    margin: 0 -2rem;
+    bottom: 0;
+    transition: width 0.6s ease, height 0.6s ease, left 0.6s ease,
+      bottom 0.6s ease;
+    filter: contrast(0.7);
+
+    &.--active {
+      display: block;
+    }
+  }
+
+}
+.seccion-innovadores {
+  &::before {
+    content: "";
+    width: 80rem;
+    height: 80rem;
+    background-image: $imagenInnovadores;
+    left: -10rem;
+    transition: all .3s ease;
+    @include mobileXS{
+      width: 70rem;
+      height: 70rem;
+      left: -10rem;  
+    }
+  }
+  &::after{
+    content: "";
+    width: 120%;
+    height: 65vh;
+    background-image: $imagenInnovadores2;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    left: -4rem;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.3s;
+    opacity: 0;
+    filter: contrast(0.7);
+    @include mobileXS{
+      left: -2rem;  
+    }
+  }
+  &.--active {
+    &::before {
+      width: 100%;
+      min-width: 20rem;
+      height: 40rem;
+      right: -2rem;
+      bottom: 28%;
+      opacity: 0;
+      
+    }
+    &::after {
+      opacity: 1;
+      
+    }
+  }
+}
+.seccion-visionarios {
+  &::before {
+    content: "";
+    width: 80rem;
+    height: 90vh;
+    background-image: $imagenVisionariosMain;
+    left: -23rem;
+    transform: scaleX(-1) rotate(50deg);
+    @include mobileXS{
+      width: 65rem;
+    }
+    
+  }
+  &::after {
+    content: '';
+    width: 120%;
+    height: 30rem;
+    background-image: $imagenPersona;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: start;
+    left: -4rem;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.3s;
+    opacity: 0;
+    filter: contrast(0.7);
+    @include mobileXS{
+      height: 25rem;
+      left: -2rem;
+    }
+  }
+  &.--active {
+    &::before {
+      content: "";
+      width: 40rem;
+      height: 40vh;
+      background-image: $imagenVisionariosMain;
+      left: 20vw;
+      bottom: 15rem;
+      transform: scaleX(-1) rotate(-40deg);
+      @include mobileXS{
+        height: 25rem;
+        left: -4rem;
+      }
+    }
+    &::after {
+      opacity: 1;
+
+    }
+  }
+}
+.seccion-mapa {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100vh;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 1.6rem;
+  }
+  &__title {
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+    text-align: center;
+    font-size: 3.2rem;
+  }
+}
+.--active {
+  .seccion-nosotros__item__title {
+    margin: 0;
+    font-size: clamp(2.4rem, 10vw, 3.2rem);
+    transform: rotate(0deg);
+    right: 0;
+    top: 0;
+    position: initial;
+    min-width: initial;
+  }
+}
