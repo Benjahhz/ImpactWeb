@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Impact es una empresa joven, apasionada por generar soluciones de tecnología e innovación aplicada al desarrollo de Software y comunicación.">
     <link rel="stylesheet" href="assets/style/app.min.css">
+    <link rel="stylesheet" href="assets/glider.min.css">
+
     <link rel="icon" href="./assets/images/icons/cropped-512-1-32x32.png" sizes="32x32">
     <link rel="icon" href="./assets/images/icons/cropped-512-1-192x192.png" sizes="192x192">
     <title>Impact - Impulsa tu innovación</title>
@@ -62,23 +64,70 @@
             <div class="seccion-nosotros__item seccion-apasionados mh-100">
                 <h2 class="seccion-nosotros__item__title">Apasionados</h2>
                 <p class="seccion-nosotros__item__text">Una empresa joven y apasionada
-                    por generar soluciones de tecnología,diseño e innovación
+                    por generar soluciones de tecnología, diseño e innovación
                 </p>
-                <lottie-player src="https://lottie.host/9272762e-8f2b-4aa2-846f-44021eedd204/IFhPaMN7q9.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
-                <img src="/assets/images/Solo-corazon-2.webp" alt="" class="seccion-apasionados__corazon">
+                <!-- Add lottie animation -->
+                <div  class="seccion-apasionados__corazon"  id="animation">
+
+                </div>
                 <img src="/assets/images/Solo-personas.png" alt="" class="seccion-apasionados__personas">
             </div>
             <div class="seccion-nosotros__item seccion-innovadores mh-100">
                 <h2 class="seccion-nosotros__item__title seccion-innovadores__item__title">Innovadores</h2>
-                <p class="seccion-nosotros__item__text seccion-innovadores__item__text">Estamos en constante renovación
-                    , incorporando tendencias de mercado, para abordar los desafios del presente con una mirada de futuro.
+                <p class="seccion-nosotros__item__text seccion-innovadores__item__text">Estamos en constante renovación,
+                     incorporando tendencias de mercado, para abordar los desafíos del presente con una mirada de futuro.
                 </p>
+                <img src="/assets/images/Solo-ampolleta.gif" alt="" class="seccion-innovadores__ampolleta">
+                <img src="/assets/images/innovadores.gif" alt="" class="seccion-innovadores__innovadores">
             </div>
             <div class="seccion-nosotros__item seccion-visionarios mh-100">
                 <h2 class="seccion-nosotros__item__title">Visionarios</h2>
-                <p class="seccion-nosotros__item__text seccion-visionarios__item__text">Estamos en constante renovación
-                    , incorporando tendencias de mercado, para abordar los desafios del presente con una mirada de futuro.
+                <p class="seccion-nosotros__item__text seccion-visionarios__item__text">Estamos en constante renovación,
+                    incorporando tendencias de mercado, para abordar los desafíos del presente con una mirada de futuro.
                 </p>
+                <img src="/assets/images/Solo-binoculares.webp" alt="" class="seccion-visionarios__binoculares">
+                <img src="/assets/images/Solo-persona.webp" alt="" class="seccion-visionarios__persona">
+            </div>
+        </section>
+        <section class="seccion-soluciones mh-100" id="section-soluciones">
+            <h3 class="seccion-soluciones__title">Nuestras soluciones</h3>
+            <div class="glider-contain container-cards">
+                <div class="glider">
+                  <div class="card card-software">
+                    <div class="img-container">
+
+                    </div>
+                    <div class="box-content">
+                        <h3 class="title">DESARROLLO DE SOFTWARE</h3>
+                        <p class="text">Creamos, estandarizamos y sistematizamos procesos para mejorar las ventas, los niveles de satisfacción, 
+                            la productividad y la reportabilidad
+                        </p>
+                    </div>
+                  </div>
+                  <div class="card card-software">
+                    <div class="img-container">
+
+                    </div>
+                    <div class="box-content">
+                        <h3 class="title">DESARROLLO DE SOFTWARE</h3>
+                        <p class="text">Creamos, estandarizamos y sistematizamos procesos para mejorar las ventas, los niveles de satisfacción, 
+                            la productividad y la reportabilidad
+                        </p>
+                    </div>
+                  </div><div class="card card-software">
+                    <div class="img-container">
+
+                    </div>
+                    <div class="box-content">
+                        <h3 class="title">DESARROLLO DE SOFTWARE</h3>
+                        <p class="text">Creamos, estandarizamos y sistematizamos procesos para mejorar las ventas, los niveles de satisfacción, 
+                            la productividad y la reportabilidad
+                        </p>
+                    </div>
+                  </div>
+                </div>
+              
+                <div role="tablist" class="dots"></div>
             </div>
         </section>
         <section class="seccion-clientes mh-100" id="section-clientes">
@@ -96,7 +145,7 @@
 
                 </li>
                 <li>
-                    <img src="/assets/images/clientes/hasbro.png" alt="">
+                    <img src="/assets/images/clientes/hasbro.ico" alt="">
 
                 </li>
                 <li>
@@ -128,26 +177,21 @@
         </section>
         <section class="seccion-formulario mh-100" id="section-contacto">
             <h2 class="seccion-formulario__title">CONTÁCTANOS</h2>
-            <form action="" class="seccion-formulario__form">
+            <form action="/application/controllers/mailController.php" class="seccion-formulario__form" method="POST">
                 <div class="seccion-formulario__form__item">
-                    <input type="text" name="nombre" id="nombre" spellcheck="false" autocomplete="off" />
-                    <span>Nombre</span>
+                    <input type="text" name="nombre" id="Nombre" spellcheck="false" autocomplete="off" placeholder="Nombre"/>
                 </div>
                 <div class="seccion-formulario__form__item">
-                    <input type="text" name="email" id="Empresa" autocomplete="off" />
-                    <span>Empresa</span>
+                    <input type="text" name="empresa" id="Empresa" autocomplete="off" placeholder="Empresa"/>
                 </div>
                 <div class="seccion-formulario__form__item">
-                    <input type="email" name="telefono" id="Email" autocomplete="off" />
-                    <span>Email</span>
+                    <input type="email" name="email" id="Email" autocomplete="off" placeholder="Email" />
                 </div>
                 <div class="seccion-formulario__form__item">
-                    <input type="text" name="telefono" id="Teléfono">
-                    <span>Teléfono</span>
+                    <input type="text" name="telefono" id="Telefono" placeholder="Telefono">
                 </div>
                 <div class="seccion-formulario__form__item">
-                    <textarea name="mensaje" id="Requerimiento" cols="30" rows="10"></textarea>
-                    <span>Requerimiento</span>
+                    <textarea name="requerimiento" id="Requerimiento" cols="30" rows="10" placeholder="Requerimiento"></textarea>
                 </div>
                 <div class="seccion-formulario__form__item">
                     <button type="submit" class="btn btn-enviar">Enviar</button>
@@ -156,15 +200,14 @@
     
         <section class="seccion-mapa mh-100">
             <h2 class="seccion-mapa__title">UBICACIÓN</h2>
-            <div class="map">
-                
-            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d282.27320724023497!2d-73.05445267840378!3d-36.829139313955636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b5da38cbc7b1%3A0xd565188d81b04e6c!2zQW5nb2wgNDM2LCBPRi4gNTAyLCBDb25jZXBjacOzbiwgQsOtbyBCw61v!5e0!3m2!1ses!2scl!4v1669129060965!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
     </main>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<script src="assets/js/modules/home/home.js"></script>
-<script src="assets/js/modules/home/loader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./assets/glider.min.js"></script>
+<script src="assets/js/main.min.js"></script>
 
 </html>

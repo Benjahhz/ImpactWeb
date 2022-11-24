@@ -117,7 +117,7 @@
 
 }
 .seccion-innovadores {
-  &::before {
+  img:nth-child(1) {
     content: "";
     width: 80rem;
     height: 80rem;
@@ -130,6 +130,8 @@
       left: -10rem;  
     }
   }
+    
+  
   &::after{
     content: "";
     width: 120%;
