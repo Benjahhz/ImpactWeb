@@ -36,35 +36,10 @@
                 padding: 2rem;
                 position: relative;
                 width: 100%;
-                
-                &:focus + span{
-                    transform: translateY(-1.5rem);
-                    font-size: 1.4rem;
-                    color: white;
-                    background-color: #0ca5c3;
-                    font-family: $fuentePrincipal;
-                    text-align: center;
-                }
+                font-size: 1.6rem;
             }
             textarea{
                 padding: 2.6rem 2rem;
-
-            }
-            
-            
-            span{
-                position: absolute;
-                left: 0;
-                padding: 10px;
-                font-size: 1.6rem;
-                color: rgb(212, 212, 212);
-                transition: transform .5s ease , background-color .5s ease , color .5s ease 
-                , font-size .5s ease ;
-                pointer-events: none;
-                
-                
-
-
             }
             button{
                 height: 6rem;

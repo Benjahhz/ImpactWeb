@@ -18,10 +18,16 @@
         margin: 0;
         padding: 0;
         list-style: none;
-
-        img{
+        column-gap: 4rem;
+        li{
             width: 10rem;
-            margin: 2rem;
+            margin: 2rem 0;
+            
+        }
+        img{
+            object-fit: contain;
+            filter: contrast(0.8);
+
         }
     }
 }

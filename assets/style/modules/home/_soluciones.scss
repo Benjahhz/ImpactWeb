@@ -1,0 +1,62 @@
+.seccion-soluciones{
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__title{
+        font-size: 6rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: start;
+        margin: 0;
+    }
+    .card{
+        display: flex;
+        flex-direction: column;
+        .img-container{
+            min-height: 40vh;
+
+        }
+        .box-content{
+            background-color: #5153529c;
+            margin-top: -4rem;
+            width: 90%;
+            height: 35vh;
+            align-self: center;
+            border-radius: 2rem;
+            text-align: center;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .text{
+            color: rgb(206, 206, 206);
+            font-weight: lighter;
+            font-size: 1.8rem;
+            line-height: 2.5rem;
+        }
+    }
+    
+}
+
+.card-software{
+       
+    .img-container{
+        background: url('/assets/images/desarrolloSoftware.png') no-repeat center center;
+        background-size: cover;
+        background-position: center;
+        background-size: 170%;
+        min-height: 40rem;
+        width: 100%;
+        border-radius: 2rem;
+        
+    }
+}
+
+.glider-track{
+    gap: 2rem;
+}

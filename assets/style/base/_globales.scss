@@ -1,40 +1,42 @@
 html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-
-
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
-*, *:before, *:after {
-    box-sizing: inherit;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
 }
 body {
-    font-size: 1.6rem;
-    background-color: $colorNegro;
-    margin: 0;
-    padding: 0;
-
+  font-size: 1.6rem;
+  background-color: $colorNegro;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    width: 90%;
-    max-width: 120rem;
-    margin: 2rem auto;
+  width: 90%;
+  max-width: 120rem;
+  margin: 2rem auto;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 img,
 picture {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 }
 
 .mh-100 {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.swal2-popup {
+  font-size: 1.6rem !important;
 }

@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    height: 100vh;
     &__image {
       object-fit: cover;
       border-radius: 2rem;
@@ -29,7 +30,7 @@
       font-size: 7rem;
       transform: rotate(90deg);
       position: absolute;
-      top: 25%;
+      top: calc(50% - 15.5rem);
       margin: 0;
       min-width: 45rem;
       right: -20rem;
@@ -44,7 +45,7 @@
         sans-serif;
       font-size: clamp(1.6rem, 6vw, 2.6rem);
       color: gray;
-      display: none;
+      opacity: 0;
     }
     .seccion-innovadores__item__title {
       transform: rotate(-90deg);
@@ -55,8 +56,13 @@
     .seccion-innovadores__item__text {
       text-align: end;
     }
-    
+    &.--active {
+      .seccion-nosotros__item__text {
+        opacity: 1;
+      }
+    }
   }
+  
 }
 
 .seccion-apasionados {
@@ -99,7 +105,6 @@
 }
 .seccion-impact {
   &__image {
-    display: none;
     object-fit: cover;
     width: 120%;
     height: 100%;
@@ -109,41 +114,34 @@
     transition: width 0.6s ease, height 0.6s ease, left 0.6s ease,
       bottom 0.6s ease;
     filter: contrast(0.7);
-
+    opacity: 0;
+    transition: opacity 0.6s;
     &.--active {
-      display: block;
+      opacity: 1;
     }
   }
 
 }
 .seccion-innovadores {
-  img:nth-child(1) {
-    content: "";
-    width: 80rem;
-    height: 80rem;
-    background-image: $imagenInnovadores;
-    left: -10rem;
-    transition: all .3s ease;
+  img{
+    transition: opacity 0.3s;
+
+  }
+  img:nth-of-type(1) {
+    position: absolute;
+    width: 75rem;
+    left: -5rem;
     @include mobileXS{
       width: 70rem;
       height: 70rem;
       left: -10rem;  
     }
   }
-    
-  
-  &::after{
-    content: "";
-    width: 120%;
-    height: 65vh;
-    background-image: $imagenInnovadores2;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    left: -4rem;
+  img:nth-of-type(2){
+    width: calc(100% + 20rem);
+    left: -10rem;
     position: absolute;
     bottom: 0;
-    transition: opacity 0.3s;
     opacity: 0;
     filter: contrast(0.7);
     @include mobileXS{
@@ -151,42 +149,31 @@
     }
   }
   &.--active {
-    &::before {
-      width: 100%;
-      min-width: 20rem;
-      height: 40rem;
-      right: -2rem;
-      bottom: 28%;
+    img:nth-of-type(1){
+      
       opacity: 0;
       
     }
-    &::after {
+    img:nth-of-type(2){
       opacity: 1;
       
     }
   }
 }
 .seccion-visionarios {
-  &::before {
-    content: "";
+  img:nth-of-type(1){
     width: 80rem;
-    height: 90vh;
-    background-image: $imagenVisionariosMain;
     left: -23rem;
     transform: scaleX(-1) rotate(50deg);
+    position: absolute;
+    transition: all 0.3s ease;
     @include mobileXS{
       width: 65rem;
     }
     
   }
-  &::after {
-    content: '';
-    width: 120%;
-    height: 30rem;
-    background-image: $imagenPersona;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: start;
+  img:nth-of-type(2){
+    width: 115%;
     left: -4rem;
     position: absolute;
     bottom: 0;
@@ -199,12 +186,11 @@
     }
   }
   &.--active {
-    &::before {
+    img:nth-of-type(1){
       content: "";
-      width: 40rem;
-      height: 40vh;
-      background-image: $imagenVisionariosMain;
-      left: 20vw;
+      width: calc(100%);
+
+      left: 15vw;
       bottom: 15rem;
       transform: scaleX(-1) rotate(-40deg);
       @include mobileXS{
@@ -212,7 +198,7 @@
         left: -4rem;
       }
     }
-    &::after {
+    img:nth-of-type(2){
       opacity: 1;
 
     }
