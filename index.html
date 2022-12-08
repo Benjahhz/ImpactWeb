@@ -9,15 +9,13 @@
       content="Impact es una empresa joven, apasionada por generar soluciones de tecnología e innovación aplicada al desarrollo de Software y comunicación." />
     <link rel="stylesheet" href="assets/style/app.min.css" />
     <link rel="stylesheet" href="assets/glider.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet" />
+      rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <script
       src="https://kit.fontawesome.com/972867c435.js"
       crossorigin="anonymous"></script>
-    <link
+      <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link
@@ -30,7 +28,6 @@
       sizes="192x192" />
     <title>Impact - Impulsa tu innovación</title>
   </head>
-
   <body>
     <div class="loader">
       <div class="wrapper-dots">
@@ -43,10 +40,7 @@
       <picture>
         <source type="image/webp" srcset="./assets/images/background.webp" />
         <source type="image/png" srcset="./assets/images/background.png" />
-        <img
-          src="./assets/images/background.png"
-          alt="background"
-           />
+        <img src="./assets/images/background.png" alt="background" />
       </picture>
       <!-- <div class="background__circle"></div>
       <div class="background__circle"></div>
@@ -353,8 +347,9 @@
                 data-img="2" />
             </picture>
           </div>
-          <div class="wrapper-nosotros ">
-            <div class="seccion-nosotros__item section seccion-apasionados mh-100 ">
+          <div class="wrapper-nosotros">
+            <div
+              class="seccion-nosotros__item section seccion-apasionados mh-100">
               <div class="container-information">
                 <h2 class="seccion-nosotros__item__title">Apasionados</h2>
                 <p class="seccion-nosotros__item__text">
@@ -384,7 +379,8 @@
                 alt=""
                 class="seccion-apasionados__personas" />
             </div>
-            <div class="seccion-nosotros__item section seccion-innovadores mh-100">
+            <div
+              class="seccion-nosotros__item section seccion-innovadores mh-100">
               <div class="container-information">
                 <h2
                   class="seccion-nosotros__item__title seccion-innovadores__item__title">
@@ -432,7 +428,8 @@
                   loading="lazy" />
               </picture>
             </div>
-            <div class="seccion-nosotros__item section seccion-visionarios mh-100">
+            <div
+              class="seccion-nosotros__item section seccion-visionarios mh-100">
               <div class="container-information">
                 <h2 class="seccion-nosotros__item__title">Visionarios</h2>
                 <p
@@ -554,42 +551,81 @@
           </div>
         </section>
         <section class="section-desarrollo mh-100 section">
-
-          <h2 class="section-desarrollo__title">Desarrollos con doble enfoque</h2>
+          <h2 class="section-desarrollo__title">
+            Desarrollos con doble enfoque
+          </h2>
           <div class="desarrollo__item">
             <div class="img">
-            <img src="./assets/images/solucion-1.png" alt="" class="desarrollo__item__image">
-            <img src="./assets/images/mano.png" alt="" class="desarrollo__item__mano">
-
+              <picture class="desarrollo__item__image">
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/solucion-1.webp"
+                  class="desarrollo__item__image" />
+                <source
+                  type="image/png"
+                  srcset="./assets/images/solucion-1.png"
+                  class="desarrollo__item__image" />
+                <img
+                  src="./assets/images/solucion-1.png"
+                  alt=""
+                  class="desarrollo__item__image" />
+              </picture>
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/mano.webp"
+                  class="desarrollo__item__mano" />
+                <source
+                  type="image/png"
+                  srcset="./assets/images/mano.png"
+                  class="desarrollo__item__mano" />
+                <img
+                  src="./assets/images/mano.png"
+                  alt=""
+                  class="desarrollo__item__mano" />
+              </picture>
             </div>
 
             <div class="desarrollo__item__content">
               <h3>Sistémico</h3>
-              <p>
-                Detectamos la necesidad y planteamos soluciones
-              </p>
+              <p>Detectamos la necesidad y planteamos soluciones</p>
             </div>
           </div>
           <div class="desarrollo__item">
             <div class="img">
-              <picture>
-                <source type="image/webp" srcset="./assets/images/solucion-1.webp"  class="desarrollo__item__image"/>
-                <source type="image/png" srcset="./assets/images/solucion-1.png" class="desarrollo__item__image" />
-                <img src="./assets/images/solucion-1.png" alt="" class="desarrollo__item__image">
+              <picture class="desarrollo__item__image">
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/solucion-1.webp"
+                  class="desarrollo__item__image" />
+                <source
+                  type="image/png"
+                  srcset="./assets/images/solucion-1.png"
+                  class="desarrollo__item__image" />
+                <img
+                  src="./assets/images/solucion-1.png"
+                  alt=""
+                  class="desarrollo__item__image" />
               </picture>
-            <picture>
-              <source type="image/webp" srcset="./assets/images/mano.webp"  class="desarrollo__item__mano"/>
-              <source type="image/png" srcset="./assets/images/mano.png" class="desarrollo__item__mano" />
-              <img src="./assets/images/mano.png" alt="" class="desarrollo__item__mano">
-
-            </picture>
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="./assets/images/mano.webp"
+                  class="desarrollo__item__mano" />
+                <source
+                  type="image/png"
+                  srcset="./assets/images/mano.png"
+                  class="desarrollo__item__mano" />
+                <img
+                  src="./assets/images/mano.png"
+                  alt=""
+                  class="desarrollo__item__mano" />
+              </picture>
             </div>
 
             <div class="desarrollo__item__content">
               <h3>Creativo</h3>
-              <p>
-                Generamos instancias de alto impact y recordación
-              </p>
+              <p>Generamos instancias de alto impact y recordación</p>
             </div>
           </div>
         </section>
@@ -597,38 +633,38 @@
           <h2 class="seccion-clientes__title">Han confiado en nosotros</h2>
           <ul class="seccion-clientes__list">
             <li>
-              <img src="/assets/images/clientes/Bci.svg" alt="" />
+              <img src="/assets/images/clientes/Bci.svg" alt="" loading="lazy" />
             </li>
             <li>
-              <img src="/assets/images/clientes/Itau.svg" alt="" />
+              <img src="/assets/images/clientes/Itau.svg" alt=""loading="lazy" />
             </li>
             <li>
-              <img src="/assets/images/clientes/Entel.svg" alt="" />
+              <img src="/assets/images/clientes/Entel.svg" alt="" loading="lazy" />
             </li>
             <li>
-              <img src="/assets/images/clientes/SQM.svg" alt="" />
+              <img src="/assets/images/clientes/SQM.svg" alt="" loading="lazy" />
             </li>
             <li>
-              <img src="/assets/images/clientes/GobChile.svg" alt="" />
+              <img src="/assets/images/clientes/GobChile.svg" alt=""loading="lazy" />
             </li>
-            
+
             <li>
-              <img src="/assets/images/clientes/BcoChile.svg" alt="" />
-            </li>
-            <li>
-              <img src="/assets/images/clientes/Ripley.svg" alt="" />
+              <img src="/assets/images/clientes/BcoChile.svg" alt="" loading="lazy" />
             </li>
             <li>
-              <img src="/assets/images/clientes/Assurant.svg" alt="" />
+              <img src="/assets/images/clientes/Ripley.svg" alt="" loading="lazy" />
             </li>
             <li>
-              <img src="/assets/images/clientes/Pudahuel.svg" alt="" />
+              <img src="/assets/images/clientes/Assurant.svg" alt="" loading="lazy" />
             </li>
             <li>
-              <img src="/assets/images/clientes/Pixarron.svg" alt="" />
+              <img src="/assets/images/clientes/Pudahuel.svg" alt="" loading="lazy" />
             </li>
             <li>
-              <img src="/assets/images/clientes/Codelco.svg" alt="" />
+              <img src="/assets/images/clientes/Pixarron.svg" alt="" loading="lazy" />
+            </li>
+            <li>
+              <img src="/assets/images/clientes/Codelco.svg" alt="" loading="lazy" />
             </li>
           </ul>
         </section>
@@ -735,7 +771,7 @@
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgmskXp-VZ2rO1GvyzlOn9FURVLCJjGc8&callback=initMap&v=weekly"
     defer></script>
-  <script>
+  <script defer >
     function initMap() {
       map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: -34.397, lng: 150.644 },
@@ -830,4 +866,12 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./assets/glider.min.js"></script>
   <script src="assets/js/main.min.js"></script>
+  <noscript>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet"
+        type="text/css"
+    />
+</noscript>
+ 
 </html>

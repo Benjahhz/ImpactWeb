@@ -294,8 +294,10 @@
 .seccion-visionarios {
   &__binoculares {
     width: 65rem;
-    left: 8rem;
     bottom: 10rem;
+    left: -20rem;
+
+
     transform: scaleX(-1) rotate(50deg);
     filter: contrast(0.7);
     position: absolute;
@@ -306,7 +308,6 @@
     }
     @include mobileXS {
       width: 50rem;
-      left: -20rem;
     }
   }
   &__persona {

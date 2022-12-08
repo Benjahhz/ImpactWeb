@@ -21,7 +21,7 @@
       width: 100rem;
       z-index: 3;
       position: relative;
-      opacity: 0;
+      
       &.--active{
         opacity: 1;
         animation: floating 4s ease-in-out infinite;
