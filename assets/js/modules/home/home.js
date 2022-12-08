@@ -1,52 +1,54 @@
-const base = "http://localhost/ImpactPagina/impact_sistema/assets/images/";
-const Imagenes = [
-  {
-    src: "/impulsa-2.webp",
-  },
-  {
-    src: "/Imagina.gif",
-  },
-  {
-    src: "/Impresiona.gif",
-  },
-];
+
+
 $(function () {
   smoothScroll();
   acciones();
-  toggleImageMain();
-  var animation = bodymovin.loadAnimation({
-    // animationData: { /* ... */ },
-    container: document.getElementById("animation"), // required
-    path: "./data.json", // required
-    renderer: "svg", // required
-    loop: true, // optional
-    autoplay: true, // optional
-    name: "Demo Animation", // optional
-  });
-  new Glider(document.querySelector(".glider"), {
-    slidesToShow: 1,
-    draggable: true,
-    scrollLock: true,
-    dots: ".dots",
-    gap: "2rem",
-    arrows: {
-      prev: ".glider-prev",
-      next: ".glider-next",
-    },
-  });
+  //toggleImageMain();
+  const mediaScreen = () => {
+    const media = window.matchMedia('(min-width: 768px)');
+    const mediaQuery = (media) => {
+      
+       crearGlider();
+      if (media.matches) {
+        $(".seccion-apasionados, .seccion-innovadores, .seccion-visionarios").unbind('click');
+      } else {
+        $(".seccion-apasionados, .seccion-innovadores, .seccion-visionarios").click(
+          function () {
+            $(this).toggleClass("--active");
+            $(this)
+              .find(".seccion-nosotros__item__text")
+              .toggleClass("animate__fadeInRight");
+            $(this)
+              .find(".seccion-nosotros__item__title")
+              .toggleClass("animate__fadeInLeft");
+          }
+        );
+      }
+    };
+    mediaQuery(media);
+    media.addEventListener('change',mediaQuery);
+  };
+  mediaScreen();
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $(".header").addClass("--active");
+    } else {
+      $(".header").removeClass("--active");
+    }
+  }
+  );
 });
-
 const acciones = () => {
   $(".container-menu").click(function () {
     $("body").toggleClass("menu-open");
     $("#nav-icon3").toggleClass("open");
   });
-  $(".seccion-apasionados, .seccion-innovadores, .seccion-visionarios").click(
+  $(".seccion-formulario__form input, seccion-formulario__form textarea").focus(
     function () {
-      // attribute before to top 0
-      $(this).toggleClass("--active");
+      $(this).parent().removeClass("error");
     }
   );
+  
   $(".seccion-formulario__form .btn-enviar").on("click", function (e) {
     e.preventDefault();
     if (
@@ -68,19 +70,24 @@ const acciones = () => {
       // focus where is empty
 
       if ($("#Nombre").val() === "") {
-        $("#Nombre").focus();
+        $("#Nombre").parent().addClass("error");
+        return;
       }
       if ($("#Empresa").val() === "") {
-        $("#Empresa").focus();
+        $("#Empresa").parent().addClass("error");
+        return;
       }
       if ($("#Email").val() === "") {
-        $("#Email").focus();
+        $("#Email").parent().addClass("error");
+        return;
       }
       if ($("#Telefono").val() === "") {
-        $("#Telefono").focus();
+        $("#Telefono").parent().addClass("error");
+        return;
       }
       if ($("#Requerimiento").val() === "") {
-        $("#Requerimiento").focus();
+        $("#Requerimiento").parent().addClass("error");
+        return;
       }
     } else {
       enviarFormulario();
@@ -96,8 +103,20 @@ const toggleImageMain = () => {
     while (random === parseInt(count)) {
       random = Math.floor(Math.random() * 3);
     }
+    if ($(".seccion-impact__image.--active").parent().hasClass("picture")) {
+      $(".seccion-impact__image.--active").parent().removeClass("--active");
+    }
     $(".seccion-impact__image.--active").removeClass("--active");
     $(`.seccion-impact__image[data-img="${random}"]`).addClass("--active");
+    if (
+      $(`.seccion-impact__image[data-img="${random}"]`)
+        .parent()
+        .hasClass("picture")
+    ) {
+      $(`.seccion-impact__image[data-img="${random}"]`)
+        .parent()
+        .addClass("--active");
+    }
   }, 4000);
 };
 
@@ -145,8 +164,8 @@ const enviarFormulario = () => {
           imageUrl: "./assets/images/177-envelope-mail-send-outline.gif",
           imageWidth: 150,
           imageHeight: 150,
-          title: "Se ha registrado correctamente",
-          text: "Hemos enviado un mail de confirmación",
+          title: "Se ha enviado correctamente",
+          text: "Hemos recibido tu mensaje, pronto nos pondremos en contacto contigo",
           timer: 2500,
         });
       } else if (response.sent === false) {
@@ -160,3 +179,39 @@ const enviarFormulario = () => {
     },
   });
 };
+function crearGlider(){
+  return new Glider(document.querySelector(".glider-child"), {
+    slidesToShow: 1,
+    draggable: true,
+    scrollLock: true,
+    dots: ".dots",
+    arrows: {
+      prev: ".glider-prev",
+      next: ".glider-next",
+    },
+
+
+    responsive: [
+
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          duration: 0.25,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          itemWidth: 100,
+          duration: 0.25,
+        },
+      },
+    ],
+
+  });
+
+}

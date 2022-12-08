@@ -1,7 +1,8 @@
 .container-main {
-  background-color: $colorGrisLight;
   border-radius: 2rem;
   min-height: 200vh;
+  overflow-x: hidden;
+
 }
 .seccion-nosotros {
   display: flex;
@@ -9,41 +10,53 @@
   justify-content: center;
   padding: 2rem;
   overflow: hidden;
-  gap: 2rem;
+  gap: 10rem;
   &__item {
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 100vh;
-    &__image {
-      object-fit: cover;
-      border-radius: 2rem;
-      width: 30rem;
-      align-self: center;
+    height: 75vh;
+    @include desktop {
+      min-height: 85vh;
+      margin-bottom: 4rem;
     }
     &__titleImage {
-      width: 50%;
+      width: 80%;
+      filter: contrast(0.8);
+      max-width: 40rem;
+      @include desktop {
+        order: 2;
+        flex: 1;
+        width: 80%;
+        max-width: 50rem;
+        margin-right: 2rem;
+      }
     }
     &__title {
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
-      font-size: 7rem;
+      font-family: $fuentePrincipal;
+      font-size: clamp(4rem, 15vw, 7rem);
       transform: rotate(90deg);
       position: absolute;
-      top: calc(50% - 15.5rem);
       margin: 0;
       min-width: 45rem;
       right: -20rem;
       color: white;
-      z-index: 99;
-    transition: all 0.3s ease;
-
-      
+      z-index: 8;
+      @include desktop {
+        opacity: 0;
+      }
+      @include tablet {
+        top: 25%;
+      }
+      @include mobile {
+        top: 50%;
+      }
     }
     &__text {
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
+      font-family: $fuentePrincipal;
       font-size: clamp(1.6rem, 6vw, 2.6rem);
+      line-height: 1.5;
+      width: 80%;
       color: gray;
       opacity: 0;
     }
@@ -56,151 +69,292 @@
     .seccion-innovadores__item__text {
       text-align: end;
     }
-    &.--active {
-      .seccion-nosotros__item__text {
-        opacity: 1;
+    @include tablet {
+      &.--active {
+        .seccion-nosotros__item__text {
+          opacity: 1;
+        }
+        .seccion-nosotros__item__title {
+          margin: 0;
+          font-size: clamp(2.4rem, 10vw, 3.2rem);
+          transform: rotate(0deg);
+          right: 0;
+          top: 0;
+          position: initial;
+          min-width: initial;
+        }
       }
     }
   }
-  
 }
 
 .seccion-apasionados {
   position: relative;
   &__corazon {
     position: absolute;
-    width: 180vw;
-    left: -120%;
-    bottom: 0;
+    width: 160vw;
+    max-width: 80rem;
+    left: -10%;
+    bottom: 10rem;
     filter: contrast(0.7);
     object-fit: cover;
+    animation: floating2 4s linear infinite;
     transition: all 0.3s ease;
   }
   &__personas {
     object-fit: cover;
     width: 120%;
-    height: 80vh;
+    height: 50vh;
     left: -4rem;
     position: absolute;
     bottom: 0;
     transition: opacity 0.6s;
     opacity: 0;
+    @include desktop {
+      opacity: 1;
+    }
+    -webkit-mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgb(202, 202, 202)
+    );
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    filter: contrast(0.8);
     filter: contrast(0.7);
-    @include mobileXS{
-      height: 55rem;
+    @include tablet {
+      width: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @include mobileXS {
+      width: 120%;
+      height: 30rem;
       left: -2rem;
+      transform: translateX(0);
     }
   }
-  &.--active {
-    .seccion-apasionados__corazon {
-      width: 100%;
-      min-width: 25rem;
-      left: -2rem;
-      bottom: 28%;
-    }
-    .seccion-apasionados__personas {
-      opacity: 1;
+  @include tablet {
+    &.--active {
+      .seccion-apasionados__corazon {
+        width: 85%;
+        min-width: 10rem;
+        max-width: 30rem;
+        bottom: 35%;
+        @include tablet {
+          left: 45vw;
+        }
+        @include mobile {
+          left: 40vw;
+        }
+      }
+      .seccion-apasionados__personas {
+        opacity: 1;
+      }
     }
   }
 }
 .seccion-impact {
   &__image {
-    object-fit: cover;
-    width: 120%;
-    height: 100%;
     position: absolute;
-    margin: 0 -2rem;
+    object-fit: cover;
+    height: 100%;
+    margin: 0 auto;
     bottom: 0;
-    transition: width 0.6s ease, height 0.6s ease, left 0.6s ease,
-      bottom 0.6s ease;
-    filter: contrast(0.7);
     opacity: 0;
+    animation: floating 4s linear infinite;
+    filter: contrast(0.7);
     transition: opacity 0.6s;
-    &.--active {
+    @include desktop {
       opacity: 1;
     }
+    @include tablet {
+      &.--active {
+        opacity: 1;
+      }
+    }
+    &.image-impresiona {
+      width: 120%;
+      max-width: 45rem;
+      animation: floating2 4s linear infinite;
+      @include desktop {
+        height: 100%;
+        width: 100%;
+        max-width: 75rem;
+        min-width: 35rem;
+      }
+      @include tablet {
+        left: 50%;
+        height: 90%;
+        max-width: 60rem;
+        transform: translateX(-50%);
+      }
+      @include mobileXS {
+        width: 120%;
+        height: 90%;
+      }
+      @include mobile {
+        width: 120%;
+        height: 90%;
+      }
+    }
   }
-
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-self: center;
+    align-items: center;
+    picture {
+      position: absolute;
+      left: -9999em;
+      flex: 2;
+      &.--active {
+        position: relative;
+        left: 0;
+        img {
+          opacity: 1;
+        }
+      }
+    }
+    &__image {
+      order: 1;
+      flex: 1;
+      width: 100%;
+      min-height: 20rem;
+      margin: 0;
+      bottom: 0;
+      left: 0;
+      transform: initial;
+      position: relative;
+      opacity: 0;
+      &.image-impresiona {
+        animation: floating 4s linear infinite;
+      }
+    }
+    .seccion-nosotros__item__titleImage {
+      left: initial;
+      position: static;
+    }
+  }
+  @include desktopXL {
+    width: 80%;
+  }
 }
 .seccion-innovadores {
-  img{
-    transition: opacity 0.3s;
-
+  .container-information {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
-  img:nth-of-type(1) {
+  &__ampolleta {
     position: absolute;
     width: 75rem;
     left: -5rem;
-    @include mobileXS{
+    bottom: 0;
+    animation: floating 4s linear infinite;
+
+    @include mobileXS {
       width: 70rem;
       height: 70rem;
-      left: -10rem;  
+      left: -10rem;
     }
   }
-  img:nth-of-type(2){
-    width: calc(100% + 20rem);
-    left: -10rem;
+  &__innovadores {
+    width: 100%;
+    left: -4rem;
     position: absolute;
     bottom: 0;
     opacity: 0;
-    filter: contrast(0.7);
-    @include mobileXS{
-      left: -2rem;  
+    @include desktop {
+      opacity: 1;
+    }
+    filter: contrast(0.8);
+    -webkit-mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgb(202, 202, 202)
+    );
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    transition: opacity 0.3s;
+    @include mobile {
+      width: calc(100% + 10rem);
     }
   }
-  &.--active {
-    img:nth-of-type(1){
-      
-      opacity: 0;
-      
-    }
-    img:nth-of-type(2){
-      opacity: 1;
-      
+  @include tablet {
+    &.--active {
+      .seccion-innovadores__ampolleta {
+        opacity: 0;
+      }
+      .seccion-innovadores__innovadores {
+        opacity: 1;
+      }
     }
   }
 }
 .seccion-visionarios {
-  img:nth-of-type(1){
-    width: 80rem;
-    left: -23rem;
+  &__binoculares {
+    width: 65rem;
+    left: 8rem;
+    bottom: 10rem;
     transform: scaleX(-1) rotate(50deg);
+    filter: contrast(0.7);
     position: absolute;
-    transition: all 0.3s ease;
-    @include mobileXS{
+    animation: floating3 4s linear infinite;
+    transition: width 0.3s ease, left 0.3s ease, bottom 0.3s ease;
+    @include mobile {
       width: 65rem;
     }
-    
+    @include mobileXS {
+      width: 50rem;
+      left: -20rem;
+    }
   }
-  img:nth-of-type(2){
+  &__persona {
     width: 115%;
     left: -4rem;
     position: absolute;
     bottom: 0;
     transition: opacity 0.3s;
     opacity: 0;
-    filter: contrast(0.7);
-    @include mobileXS{
-      height: 25rem;
+    @include desktop {
+      opacity: 1;
+    }
+    filter: contrast(0.8);
+    -webkit-mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgb(202, 202, 202)
+    );
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    @include mobileXS {
       left: -2rem;
     }
   }
-  &.--active {
-    img:nth-of-type(1){
-      content: "";
-      width: calc(100%);
-
-      left: 15vw;
-      bottom: 15rem;
-      transform: scaleX(-1) rotate(-40deg);
-      @include mobileXS{
-        height: 25rem;
-        left: -4rem;
+  @include tablet {
+    &.--active {
+      .seccion-visionarios__binoculares {
+        width: 85%;
+        min-width: 10rem;
+        max-width: 30rem;
+        left: 40vw;
+        bottom: 20vh;
+        transform: scaleX(-1) rotate(-40deg);
+        animation: floating 4s linear infinite;
+        @include mobile {
+          left: 9rem;
+        }
       }
-    }
-    img:nth-of-type(2){
-      opacity: 1;
-
+      .seccion-visionarios__persona {
+        width: auto;
+        left: 50%;
+        height: 50vh;
+        transform: translateX(-50%);
+        opacity: 1;
+        object-fit: cover;
+        @include mobileXS {
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -208,28 +362,154 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  max-height: 100vh;
-  iframe {
+
+  .map {
     width: 100%;
     height: 100%;
-    border-radius: 1.6rem;
+    border-radius: 1.2rem;
+    flex: 1;
   }
   &__title {
     color: white;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+    font-family: $fuentePrincipal;
     text-align: center;
     font-size: 3.2rem;
+    font-size: clamp(2.4rem, 10vw, 3.2rem);
+    margin: 0;
+    margin-bottom: 2rem;
   }
 }
-.--active {
-  .seccion-nosotros__item__title {
-    margin: 0;
-    font-size: clamp(2.4rem, 10vw, 3.2rem);
-    transform: rotate(0deg);
-    right: 0;
-    top: 0;
-    position: initial;
-    min-width: initial;
+
+/* Desktop para secciones nosotros */
+@include desktop {
+  .wrapper-nosotros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    width: 90%;
+    align-self: center;
+    .seccion-nosotros__item {
+      align-items: center;
+      position: relative;
+      font-family: $fuentePrincipal;
+      flex: 1;
+      height: 100%;
+      min-height: initial;
+      max-width: 40rem;
+
+      .container-information {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 6rem;
+      }
+      .seccion-apasionados__personas {
+        height: auto;
+        width: 40rem;
+        object-fit: contain;
+        position: initial;
+      }
+      .seccion-apasionados__corazon {
+        width: 15rem;
+        height: initial;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -4rem;
+      }
+
+      .seccion-innovadores__ampolleta {
+        opacity: 0;
+      }
+      picture {
+        height: auto;
+        width: 40rem;
+      }
+      .seccion-innovadores__innovadores {
+        position: initial;
+        height: auto;
+        width: 40rem;
+        object-fit: contain;
+      }
+      .seccion-visionarios__binoculares {
+        width: 15rem;
+        height: initial;
+        right: 0;
+        left: initial;
+        transform: translateX(-50%);
+        animation: floating 4s linear infinite;
+        top: 0rem;
+      }
+      .seccion-visionarios__persona {
+        height: 29rem;
+        width: 40rem;
+        object-fit: contain;
+        position: initial;
+      }
+      &__title {
+        order: 1;
+        position: initial;
+        font-size: 5rem;
+        text-align: center;
+      }
+      &__text {
+        order: 2;
+        font-size: 1.8rem;
+        text-align: center;
+      }
+    }
+  }
+}
+.wrapper-contacto {
+  @include desktop {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    .seccion-formulario {
+      flex: 1;
+    }
+    .seccion-mapa {
+      flex: 1;
+    }
+  }
+}
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes floating2 {
+  0% {
+    transform: translateY(0) translateX(-50%);
+  }
+  50% {
+    transform: translateY(-1rem) translateX(-50%);
+  }
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+}
+@keyframes floating3 {
+  0% {
+    transform: translateY(0) scaleX(-1) rotate(50deg);
+  }
+  50% {
+    transform: translateY(-1rem) scaleX(-1) rotate(50deg);
+  }
+  100% {
+    transform: translateY(0) scaleX(-1) rotate(50deg);
+  }
+}
+@include desktopXL{
+  .wrapper-nosotros{
+    gap: 15rem;
   }
 }

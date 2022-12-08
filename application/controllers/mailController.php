@@ -31,7 +31,7 @@ if ($nombre && $empresa && $email && $telefono && $requerimiento) {
         'Reply-To: ' . $email . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
     $subject = "Contacto desde el sitio web";
-    mail("ben.ja07@live.cl", $subject, $requerimiento, $headers);
+    mail("contacto@impact.cl", $subject, $requerimiento, $headers);
     echo json_encode(array("sent" => true));
 }else{
     echo json_encode(["sent" => false, "message" => "Por favor complete todos los campos"]);
